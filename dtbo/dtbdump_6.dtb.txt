@@ -1,14 +1,14 @@
 /dts-v1/;
 // magic:		0xd00dfeed
-// totalsize:		0x2f4a0 (193696)
+// totalsize:		0x2fd78 (195960)
 // off_dt_struct:	0x38
-// off_dt_strings:	0x27698
+// off_dt_strings:	0x28028
 // off_mem_rsvmap:	0x28
 // version:		17
 // last_comp_version:	16
 // boot_cpuid_phys:	0x0
-// size_dt_strings:	0x7e06
-// size_dt_struct:	0x27660
+// size_dt_strings:	0x7d4d
+// size_dt_struct:	0x27ff0
 
 / {
     compatible = "samsung,D2 EUR OPEN 20", "samsung,EXYNOS9825";
@@ -3812,155 +3812,342 @@
             input_booster {
                 status = "okay";
                 compatible = "input_booster";
+                max_resource_count = "7";
                 #address-cells = <0x00000001>;
                 #size-cells = <0x00000000>;
+                ib_release_values = "0,0,0,0,0,0,0";
                 booster_key@1 {
-                    input_booster,label = "KEY";
+                    input_booster,label = "key";
                     input_booster,type = <0x00000000>;
-                    input_booster,levels = <0x00000001>;
-                    input_booster,cpu2_freqs = <0x00000000>;
-                    input_booster,cpu1_freqs = <0x00156c60>;
-                    input_booster,hmp_boost = <0x00000001>;
-                    input_booster,kfc_freqs = <0x00000000>;
-                    input_booster,mif_freqs = <0x00000000>;
-                    input_booster,int_freqs = <0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001>;
-                    input_booster,head_times = <0x000001f4>;
-                    input_booster,tail_times = <0x000001f4>;
-                    input_booster,phase_times = <0x00000000>;
+                    input_booster,head_time = <0x000001f4>;
+                    input_booster,tail_time = <0x000001f4>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x00156c60 0x00000000>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000000>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000000>;
+                        };
+                    };
                 };
                 booster_key@2 {
-                    input_booster,label = "TOUCHKEY";
+                    input_booster,label = "touchkey";
                     input_booster,type = <0x00000001>;
-                    input_booster,levels = <0x00000001>;
-                    input_booster,cpu2_freqs = <0x00000000>;
-                    input_booster,cpu1_freqs = <0x00156c60>;
-                    input_booster,hmp_boost = <0x00000001>;
-                    input_booster,kfc_freqs = <0x00000000>;
-                    input_booster,mif_freqs = <0x00000000>;
-                    input_booster,int_freqs = <0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001>;
-                    input_booster,head_times = <0x00000000>;
-                    input_booster,tail_times = <0x000000c8>;
-                    input_booster,phase_times = <0x00000000>;
+                    input_booster,head_time = <0x00000000>;
+                    input_booster,tail_time = <0x000000c8>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x00156c60 0x00000000>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000000>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000000>;
+                        };
+                    };
                 };
                 booster_key@3 {
-                    input_booster,label = "TOUCH";
+                    input_booster,label = "touch";
                     input_booster,type = <0x00000002>;
-                    input_booster,levels = <0x00000001 0x00000002 0x00000003>;
-                    input_booster,cpu2_freqs = <0x000c7f38 0x000c7f38 0x00098580>;
-                    input_booster,cpu1_freqs = <0x0012a570 0x0012a570 0x000eadd0>;
-                    input_booster,hmp_boost = <0x00000001 0x00000001 0x00000001>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x000c4c70 0x000c4c70>;
-                    input_booster,mif_freqs = <0x000f78f0 0x000f78f0 0x000f78f0>;
-                    input_booster,int_freqs = <0x00000000 0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001 0x00000001>;
-                    input_booster,head_times = <0x00000082 0x00000082 0x00000000>;
-                    input_booster,tail_times = <0x00000000 0x00000000 0x000001f4>;
-                    input_booster,phase_times = <0x00000000 0x00000000 0x00000000>;
+                    input_booster,head_time = <0x00000082>;
+                    input_booster,tail_time = <0x000001f4>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x000c7f38 0x00098580>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x0012a570 0x000eadd0>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x000c4c70>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x000f78f0 0x000f78f0>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
                 booster_key@4 {
-                    input_booster,label = "MULTITOUCH";
+                    input_booster,label = "multitouch";
                     input_booster,type = <0x00000003>;
-                    input_booster,levels = <0x00000001 0x00000002>;
-                    input_booster,cpu2_freqs = <0x000c7f38 0x00098580>;
-                    input_booster,cpu1_freqs = <0x0012a570 0x000eadd0>;
-                    input_booster,hmp_boost = <0x00000001 0x00000001>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x000c4c70>;
-                    input_booster,mif_freqs = <0x000f78f0 0x000f78f0>;
-                    input_booster,int_freqs = <0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001>;
-                    input_booster,head_times = <0x000003e8 0x00000000>;
-                    input_booster,tail_times = <0x00000000 0x000001f4>;
-                    input_booster,phase_times = <0x00000000 0x00000000>;
+                    input_booster,head_time = <0x000003e8>;
+                    input_booster,tail_time = <0x000001f4>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x000c7f38 0x00098580>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x0012a570 0x000eadd0>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x000c4c70>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x000f78f0 0x000f78f0>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
                 booster_key@5 {
-                    input_booster,label = "KEYBOARD";
+                    input_booster,label = "keyboard";
                     input_booster,type = <0x00000004>;
-                    input_booster,levels = <0x00000001 0x00000002>;
-                    input_booster,cpu2_freqs = <0x00000000 0x00000000>;
-                    input_booster,cpu1_freqs = <0x00156c60 0x00156c60>;
-                    input_booster,hmp_boost = <0x00000001 0x00000001>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x000c4c70>;
-                    input_booster,mif_freqs = <0x00000000 0x00000000>;
-                    input_booster,int_freqs = <0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001>;
-                    input_booster,head_times = <0x00000082 0x00000082>;
-                    input_booster,tail_times = <0x00000000 0x00000000>;
-                    input_booster,phase_times = <0x00000000 0x00000000>;
+                    input_booster,head_time = <0x00000082>;
+                    input_booster,tail_time = <0x00000000>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x00156c60 0x00156c60>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x000c4c70>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
                 booster_key@6 {
-                    input_booster,label = "MOUSE";
+                    input_booster,label = "mouse";
                     input_booster,type = <0x00000005>;
-                    input_booster,levels = <0x00000001 0x00000002>;
-                    input_booster,cpu2_freqs = <0x00000000 0x00000000>;
-                    input_booster,cpu1_freqs = <0x00156c60 0x0012a570>;
-                    input_booster,hmp_boost = <0x00000001 0x00000001>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x000c4c70>;
-                    input_booster,mif_freqs = <0x00000000 0x00000000>;
-                    input_booster,int_freqs = <0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001>;
-                    input_booster,head_times = <0x00000082 0x00000000>;
-                    input_booster,tail_times = <0x00000000 0x000001f4>;
-                    input_booster,phase_times = <0x00000000 0x00000000>;
+                    input_booster,head_time = <0x00000082>;
+                    input_booster,tail_time = <0x000001f4>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x00156c60 0x0012a570>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x000c4c70>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
                 booster_key@7 {
-                    input_booster,label = "MOUSE WHEEL";
+                    input_booster,label = "mouse_wheel";
                     input_booster,type = <0x00000006>;
-                    input_booster,levels = <0x00000001 0x00000002>;
-                    input_booster,cpu2_freqs = <0x00000000 0x00000000>;
-                    input_booster,cpu1_freqs = <0x00156c60 0x00000000>;
-                    input_booster,hmp_boost = <0x00000001 0x00000000>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x00000000>;
-                    input_booster,mif_freqs = <0x00000000 0x00000000>;
-                    input_booster,int_freqs = <0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001>;
-                    input_booster,head_times = <0x00000082 0x00000000>;
-                    input_booster,tail_times = <0x00000000 0x00000000>;
-                    input_booster,phase_times = <0x00000000 0x00000000>;
+                    input_booster,head_time = <0x00000082>;
+                    input_booster,tail_time = <0x00000000>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x00156c60 0x00000000>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x00000000>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000000>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
                 booster_key@8 {
-                    input_booster,label = "PEN HOVER";
+                    input_booster,label = "pen_hover";
                     input_booster,type = <0x00000007>;
-                    input_booster,levels = <0x00000001 0x00000002>;
-                    input_booster,cpu2_freqs = <0x00000000 0x00000000>;
-                    input_booster,cpu1_freqs = <0x00156c60 0x0012a570>;
-                    input_booster,hmp_boost = <0x00000001 0x00000001>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x000c4c70>;
-                    input_booster,mif_freqs = <0x00000000 0x00000000>;
-                    input_booster,int_freqs = <0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001>;
-                    input_booster,head_times = <0x00000082 0x00000000>;
-                    input_booster,tail_times = <0x00000000 0x000001f4>;
-                    input_booster,phase_times = <0x00000000 0x00000000>;
+                    input_booster,head_time = <0x00000082>;
+                    input_booster,tail_time = <0x000001f4>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x00156c60 0x0012a570>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x000c4c70>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "int";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
                 booster_key@9 {
-                    input_booster,label = "PEN";
+                    input_booster,label = "pen";
                     input_booster,type = <0x00000008>;
-                    input_booster,levels = <0x00000001 0x00000002>;
-                    input_booster,cpu2_freqs = <0x00000000 0x00000000>;
-                    input_booster,cpu1_freqs = <0x001702a0 0x0012a570>;
-                    input_booster,hmp_boost = <0x00000001 0x00000001>;
-                    input_booster,kfc_freqs = <0x000c4c70 0x000c4c70>;
-                    input_booster,bimc_freqs = <0x00000000 0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001 0x00000001>;
-                    input_booster,head_times = <0x000000c8 0x00000000>;
-                    input_booster,tail_times = <0x00000000 0x00000258>;
-                };
-                booster_key@10 {
-                    input_booster,label = "KEY_TWO";
-                    input_booster,type = <0x00000009>;
-                    input_booster,levels = <0x00000001>;
-                    input_booster,cpu2_freqs = <0x00000000 0x00000000>;
-                    input_booster,cpu1_freqs = <0x001702a0>;
-                    input_booster,hmp_boost = <0x00000001>;
-                    input_booster,kfc_freqs = <0x00101148>;
-                    input_booster,mif_freqs = <0x00000000>;
-                    input_booster,int_freqs = <0x00000000>;
-                    input_booster,ucc_requested_val = <0x00000001>;
-                    input_booster,head_times = <0x000002bc>;
-                    input_booster,tail_times = <0x000002bc>;
-                    input_booster,phase_times = <0x00000000>;
+                    input_booster,head_time = <0x000000c8>;
+                    input_booster,tail_time = <0x00000258>;
+                    inputbooster,resource {
+                        compatible = "resource";
+                        resource@1 {
+                            resource,label = "cluster2";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@2 {
+                            resource,label = "cluster1";
+                            resource,value = <0x001702a0 0x0012a570>;
+                        };
+                        resource@3 {
+                            resource,label = "cluster0";
+                            resource,value = <0x000c4c70 0x000c4c70>;
+                        };
+                        resource@4 {
+                            resource,label = "mif";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@5 {
+                            resource,label = "bimc";
+                            resource,value = <0x00000000 0x00000000>;
+                        };
+                        resource@6 {
+                            resource,label = "hmp";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                        resource@7 {
+                            resource,label = "ucc";
+                            resource,value = <0x00000001 0x00000001>;
+                        };
+                    };
                 };
             };
         };
